@@ -12,7 +12,11 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    @Autowired IUserRepository mIUserRepository;
+    IUserRepository mIUserRepository;
+
+    public UserService( IUserRepository aRepository){
+        this.mIUserRepository = aRepository;
+    }
 
     public UserDTO saveUser(UserDTO aUserDTO) {
          return  mIUserRepository.save(aUserDTO);
