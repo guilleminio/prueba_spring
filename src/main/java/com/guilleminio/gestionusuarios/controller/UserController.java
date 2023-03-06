@@ -10,7 +10,11 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    @Autowired  UserService mUserService;
+    UserService mUserService;
+
+    public UserController( UserService aUserService){
+        this.mUserService = aUserService;
+    }
 
     @PostMapping("/users")
     private UserDTO saveUser(@RequestBody UserDTO aUserDTO){
